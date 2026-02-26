@@ -10,13 +10,13 @@ main:
     image: ./assets/img/teaser_example_2.png
     notes: Early Accept
 
-  - title: "Mnemonics Training: Multi-Class Incremental Learning without Forgetting"
-    authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
-    conference_short: CVPR
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
-    pdf: https://arxiv.org/pdf/2002.10211.pdf
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
+  - title: "SCALAR: Scale-wise Controllable Visual Autoregressive Learning"
+    authors: Ryan Xu*, <strong>Dongyang Jin*</strong>, Yancheng Bai, Rui Lan, Xu Duan, Lei Sun, Xiangxiang Chu
+    conference_short: AAAI
+    conference: Proceedings of the AAAI conference on artificial intelligence 38.
+    pdf: https://arxiv.org/pdf/2507.19946
+    code: https://github.com/AMAP-ML/SCALAR
     page: https://class-il.mpi-inf.mpg.de/mnemonics/
     bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-    notes: Oral Presentation
+    # notes: Oral Presentation
     image: ./assets/img/teaser_example.png
