@@ -8,8 +8,8 @@ I am a Master student at SUSTech.
 
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- **AIGC:** iGenerative models & image synthesis, autoregressive models
+- **Biometrics:** Gait Recognition, 
 
 ## News
 
