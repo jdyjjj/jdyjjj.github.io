@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dongyang Jin</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #222;
+      background: #fff;
+    }
+
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Header ── */
+    .profile {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #e8eaf6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: #5c6bc0;
+      border: 3px solid #e0e0e0;
+    }
+
+    .profile-info h1 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .profile-info .subtitle {
+      color: #555;
+      margin-bottom: 12px;
+      font-size: 14.5px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #333;
+      background: #fafafa;
+      transition: border-color 0.2s;
+    }
+    .links a:hover { border-color: #1a73e8; color: #1a73e8; text-decoration: none; }
+
+    /* ── Sections ── */
+    section { margin-bottom: 36px; }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+      color: #111;
+    }
+
+    /* ── Research Interests ── */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .interest-tag {
+      background: #f0f4ff;
+      color: #3d5afe;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    /* ── News ── */
+    .news-list { list-style: none; }
+    .news-list li {
+      display: flex;
+      gap: 12px;
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-date {
+      flex-shrink: 0;
+      font-weight: 600;
+      color: #555;
+      min-width: 72px;
+    }
+
+    /* ── Publications ── */
+    .pub-list { list-style: none; }
+
+    .pub-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-thumb {
+      width: 100px;
+      height: 72px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #e8eaf6, #e3f2fd);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #888;
+      font-weight: 600;
+      text-align: center;
+      padding: 4px;
+      line-height: 1.3;
+    }
+
+    .pub-content { flex: 1; min-width: 0; }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 14.5px;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .pub-authors {
+      font-size: 13.5px;
+      color: #444;
+      margin-bottom: 4px;
+    }
+
+    .pub-authors .me { font-weight: 700; color: #222; }
+
+    .pub-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .venue-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-ccf-a { background: #fce8e8; color: #c62828; }
+    .badge-ccf-b { background: #fff3e0; color: #e65100; }
+    .badge-ccf-c { background: #fef9c3; color: #7a6000; }
+    .badge-preprint { background: #e8f5e9; color: #2e7d32; }
+    .badge-journal  { background: #e8eaf6; color: #283593; }
+
+    .pub-venue-name { font-style: italic; color: #555; }
+
+    .pub-links { display: flex; gap: 8px; margin-top: 4px; }
+    .pub-link {
+      font-size: 12.5px;
+      padding: 2px 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      color: #555;
+    }
+    .pub-link:hover { border-color: #1a73e8; color: #1a73e8; text-decoration: none; }
+
+    .cite-count { font-size: 12.5px; color: #888; margin-left: 4px; }
+
+    .note { font-size: 13px; color: #666; margin-top: 2px; }
+    .note strong { color: #d32f2f; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      color: #aaa;
+      font-size: 12px;
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 600px) {
+      .profile { flex-direction: column; align-items: center; text-align: center; }
+      .links { justify-content: center; }
+      .pub-thumb { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── Header ── -->
+  <div class="profile">
+    <div class="avatar">DJ</div>
+    <div class="profile-info">
+      <h1>Dongyang Jin &nbsp;<span style="font-size:18px;font-weight:400;color:#666">金冬阳</span></h1>
+      <p class="subtitle">
+        Researcher · Dept. of Computer Science and Engineering<br>
+        Southern University of Science and Technology (SUSTech), Shenzhen, China
+      </p>
+      <p style="font-size:14px;color:#555;">
+        📧 &nbsp;<a href="mailto:jdy@mail.sustech.edu.cn">jdy@mail.sustech.edu.cn</a>
+        &nbsp;·&nbsp; Advised by <a href="#">Prof. Shiqi Yu</a>
+      </p>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=1xA5KxAAAAAJ&hl=en" target="_blank">
+          🎓 Google Scholar
+        </a>
+        <a href="https://github.com/jdyjjj" target="_blank">
+          💻 GitHub
+        </a>
+        <a href="#" target="_blank">
+          📄 CV
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── About ── -->
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I am a researcher at the Department of Computer Science and Engineering,
+      Southern University of Science and Technology (SUSTech), working under the supervision of
+      <a href="#">Prof. Shiqi Yu</a>.
+      My research spans <strong>AI-generated content (AIGC)</strong>, <strong>image &amp; video generation</strong>,
+      <strong>computer vision</strong>, and <strong>biometrics</strong>.
+      I am particularly interested in visual autoregressive generation, gait recognition, and
+      controllable generative models.
+    </p>
+  </section>
+
+  <!-- ── Research Interests ── -->
+  <section>
+    <h2>Research Interests</h2>
+    <div class="interests">
+      <span class="interest-tag">AIGC</span>
+      <span class="interest-tag">Image Generation</span>
+      <span class="interest-tag">Video Generation</span>
+      <span class="interest-tag">Computer Vision</span>
+      <span class="interest-tag">Biometrics</span>
+      <span class="interest-tag">Gait Recognition</span>
+      <span class="interest-tag">Visual Autoregressive Models</span>
+    </div>
+  </section>
+
+  <!-- ── News ── -->
+  <section>
+    <h2>News</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">Jun 2026</span>
+        <span>Papers <em>Semantic Context Matters</em> and <em>Eevee</em> accepted to <strong>CVPR 2026</strong>.</span>
+      </li>
+      <li>
+        <span class="news-date">Jan 2026</span>
+        <span>Paper <em>SCALAR</em> accepted to <strong>AAAI 2026</strong> (CCF A). Co-first author.</span>
+      </li>
+      <li>
+        <span class="news-date">Jun 2025</span>
+        <span>Paper <em>On Denoising Walking Videos for Gait Recognition</em> accepted to <strong>CVPR 2025</strong> (CCF A).</span>
+      </li>
+      <li>
+        <span class="news-date">Jan 2025</span>
+        <span>Paper <em>Exploring More from Multiple Gait Modalities</em> accepted to <strong>AAAI 2025</strong> (CCF A). First author.</span>
+      </li>
+      <li>
+        <span class="news-date">Jun 2024</span>
+        <span>Paper <em>SkeletonGait</em> accepted to <strong>AAAI 2024</strong> (CCF A). 130+ citations.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── Publications ── -->
+  <section>
+    <h2>Publications</h2>
+    <p style="font-size:13px;color:#888;margin-bottom:14px;">
+      * Equal contribution &nbsp;·&nbsp; † Corresponding author &nbsp;·&nbsp;
+      <span style="color:#c62828;font-weight:700;">■</span> CCF-A &nbsp;
+      <span style="color:#e65100;font-weight:700;">■</span> CCF-B &nbsp;
+      <span style="color:#2e7d32;font-weight:700;">■</span> Preprint/Under Review
+    </p>
+    <ul class="pub-list">
+
+      <!-- 2026 -->
+      <li class="pub-item">
+        <div class="pub-thumb">SCALAR++<br>2026</div>
+        <div class="pub-content">
+          <div class="pub-title">SCALAR++: Efficient Controllable Generation via Scale-wise Visual Autoregressive Learning</div>
+          <div class="pub-authors">
+            R. Xu*, <span class="me">D. Jin*</span>, S. Chen*, Y. Bai, J. Ma, R. Lan, J. Zeng, Y. Ge, M. Zheng, L. Sun, X. Chu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-preprint">Preprint</span>
+            <span class="pub-venue-name">Under Review, 2026</span>
+          </div>
+          <div class="note"><strong>*</strong> Equal contribution</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">Semantic<br>Context<br>CVPR'26</div>
+        <div class="pub-content">
+          <div class="pub-title">Semantic Context Matters: Improving Conditioning for Autoregressive Models</div>
+          <div class="pub-authors">
+            <span class="me">D. Jin*</span>, R. Xu*, J. Zeng, R. Lan, Y. Bai, L. Sun, X. Chu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-a">CCF A</span>
+            <span class="pub-venue-name">CVPR 2026</span>
+            <span class="cite-count">9 citations</span>
+          </div>
+          <div class="note"><strong>*</strong> Equal contribution · Co-first author</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">Eevee<br>CVPR'26</div>
+        <div class="pub-content">
+          <div class="pub-title">Eevee: Towards Close-up High-Resolution Video-based Virtual Try-on</div>
+          <div class="pub-authors">
+            J. Zeng, Y. Bai, R. Chen, X. Zhang, L. Sun, <span class="me">D. Jin</span>, R. Xu, N. Zhang, D. Song, et al.
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-a">CCF A</span>
+            <span class="pub-venue-name">CVPR 2026</span>
+            <span class="cite-count">8 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">SCALAR<br>AAAI'26</div>
+        <div class="pub-content">
+          <div class="pub-title">SCALAR: Scale-wise Controllable Visual Autoregressive Learning</div>
+          <div class="pub-authors">
+            R. Xu*, <span class="me">D. Jin*</span>, Y. Bai, R. Lan, X. Duan, L. Sun, X. Chu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-a">CCF A</span>
+            <span class="pub-venue-name">AAAI 2026</span>
+            <span class="cite-count">21 citations</span>
+          </div>
+          <div class="note"><strong>*</strong> Equal contribution · Co-first author</div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">SAFE<br>2026</div>
+        <div class="pub-content">
+          <div class="pub-title">SAFE: A Semantic-Appearance Full-Body Editor for Pedestrian Video Anonymization</div>
+          <div class="pub-authors">
+            J. Ma, C. Fan, D. Ye, J. Yang, <span class="me">D. Jin</span>, C. Luo, J. Li, F.M. Hassan, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-preprint">Preprint</span>
+            <span class="pub-venue-name">Under Review, 2026</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2025 -->
+      <li class="pub-item">
+        <div class="pub-thumb">Denoising<br>Gait<br>CVPR'25</div>
+        <div class="pub-content">
+          <div class="pub-title">On Denoising Walking Videos for Gait Recognition</div>
+          <div class="pub-authors">
+            <span class="me">D. Jin</span>, C. Fan, J. Ma, J. Zhou, W. Chen, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-a">CCF A</span>
+            <span class="pub-venue-name">CVPR 2025</span>
+            <span class="cite-count">18 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">Gait<br>Modalities<br>AAAI'25</div>
+        <div class="pub-content">
+          <div class="pub-title">Exploring More from Multiple Gait Modalities for Human Identification</div>
+          <div class="pub-authors">
+            <span class="me">D. Jin</span>, C. Fan, W. Chen, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-a">CCF A</span>
+            <span class="pub-venue-name">AAAI 2025</span>
+            <span class="cite-count">34 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">OpenGait<br>TPAMI'25</div>
+        <div class="pub-content">
+          <div class="pub-title">OpenGait: A Comprehensive Benchmark Study for Gait Recognition towards Better Practicality</div>
+          <div class="pub-authors">
+            C. Fan, S. Hou, J. Liang, C. Shen, J. Ma, <span class="me">D. Jin</span>, Y. Huang, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-journal">Journal</span>
+            <span class="pub-venue-name">IEEE TPAMI 2025</span>
+            <span class="cite-count">48 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">Flux-Text<br>2025</div>
+        <div class="pub-content">
+          <div class="pub-title">Flux-text: A Simple and Advanced Diffusion Transformer Baseline for Scene Text Editing</div>
+          <div class="pub-authors">
+            R. Lan, Y. Bai, X. Duan, M. Li, <span class="me">D. Jin</span>, R. Xu, D. Nie, L. Sun, X. Chu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-preprint">Preprint</span>
+            <span class="pub-venue-name">arXiv 2025</span>
+            <span class="cite-count">37 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">Scoliosis<br>MICCAI'25</div>
+        <div class="pub-content">
+          <div class="pub-title">Pose as Clinical Prior: Learning Dual Representations for Scoliosis Screening</div>
+          <div class="pub-authors">
+            Z. Zhou, Z. Peng, <span class="me">D. Jin</span>, C. Fan, F. An, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-b">CCF B</span>
+            <span class="pub-venue-name">MICCAI 2025</span>
+            <span class="cite-count">2 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2024 -->
+      <li class="pub-item">
+        <div class="pub-thumb">Skeleton<br>Gait<br>AAAI'24</div>
+        <div class="pub-content">
+          <div class="pub-title">SkeletonGait: Gait Recognition using Skeleton Maps</div>
+          <div class="pub-authors">
+            C. Fan, J. Ma, <span class="me">D. Jin</span>, C. Shen, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-a">CCF A</span>
+            <span class="pub-venue-name">AAAI 2024</span>
+            <span class="cite-count">132 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-item">
+        <div class="pub-thumb">Privacy<br>IJCB'24</div>
+        <div class="pub-content">
+          <div class="pub-title">Passersby-Anonymizer: Safeguard the Privacy of Passersby in Social Videos</div>
+          <div class="pub-authors">
+            J. Ma, H. Luo, Z. Huang, <span class="me">D. Jin</span>, R. Wang, J.A. Briffa, N. Poh, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-c">CCF C</span>
+            <span class="pub-venue-name">IJCB 2024</span>
+            <span class="cite-count">8 citations</span>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2025 (HealthGait) -->
+      <li class="pub-item">
+        <div class="pub-thumb">Health<br>Gait<br>CCBR'26</div>
+        <div class="pub-content">
+          <div class="pub-title">HealthGait-Uni: Health Assessment by Human Body Appearance and Motion from Videos</div>
+          <div class="pub-authors">
+            S. Cao, R. Aguilar-Ortega, <span class="me">D. Jin</span>, M.J. Marin-Jimenez, S. Yu
+          </div>
+          <div class="pub-meta">
+            <span class="venue-badge badge-ccf-c">Workshop</span>
+            <span class="pub-venue-name">CCBR 2026</span>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ── Services ── -->
+  <section>
+    <h2>Academic Services</h2>
+    <p><strong>Reviewer:</strong> CVPR, AAAI, MICCAI</p>
+  </section>
+
+  <footer>
+    <p>Last updated: June 2026 &nbsp;·&nbsp; Dongyang Jin</p>
+    <p style="margin-top:6px;">Template inspired by <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank">Minimal Light</a>.</p>
+  </footer>
+
+</div>
+</body>
+</html>
