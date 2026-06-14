@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dongyang Jin | SUSTech</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%231a73e8'/><text y='.9em' font-size='60' x='50%' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>DJ</text></svg>">
+  <link rel="icon" href="figs/others/fig1.jpg">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -211,6 +211,37 @@
     .note { font-size: 13px; color: #666; margin-top: 2px; }
     .note strong { color: #d32f2f; }
 
+    /* ── Experience ── */
+    .exp-list { list-style: none; }
+    .exp-item {
+      display: flex;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: flex-start;
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #999;
+      font-weight: 600;
+      text-align: center;
+    }
+    .exp-content { flex: 1; }
+    .exp-role { font-weight: 700; font-size: 14.5px; }
+    .exp-company { color: #555; font-size: 14px; }
+    .exp-date { font-size: 13px; color: #888; margin-top: 2px; }
+    .exp-desc { font-size: 13.5px; color: #444; margin-top: 4px; }
+
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -233,7 +264,7 @@
 
   <!-- ── Header ── -->
   <div class="profile">
-    <div class="avatar">DJ</div>
+    <img src="figs/others/fig1.jpg" class="avatar" alt="Dongyang Jin">
     <div class="profile-info">
       <h1>Dongyang Jin &nbsp;<span style="font-size:18px;font-weight:400;color:#666">金冬阳</span></h1>
       <p class="subtitle">
@@ -309,6 +340,22 @@
       <li>
         <span class="news-date">Jun 2024</span>
         <span>Paper <em>SkeletonGait</em> accepted to <strong>AAAI 2024</strong> (CCF A). 130+ citations.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section>
+    <h2>Experience</h2>
+    <ul class="exp-list">
+      <li class="exp-item">
+        <div class="exp-logo">公司<br>Logo</div>
+        <div class="exp-content">
+          <div class="exp-role">Research Intern</div>
+          <div class="exp-company">公司/机构名称</div>
+          <div class="exp-date">月份 年份 – 月份 年份</div>
+          <div class="exp-desc">简短描述工作内容（可不填）</div>
+        </div>
       </li>
     </ul>
   </section>
@@ -512,53 +559,6 @@
         </div>
       </li>
 
-    </ul>
-  </section>
-
-  <!-- ── Experience ── -->
-  <section>
-    <h2>Experience</h2>
-    <style>
-      .exp-list { list-style: none; }
-      .exp-item {
-        display: flex;
-        gap: 16px;
-        padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
-        align-items: flex-start;
-      }
-      .exp-item:last-child { border-bottom: none; }
-      .exp-logo {
-        width: 48px;
-        height: 48px;
-        border-radius: 8px;
-        background: #f5f5f5;
-        border: 1px solid #e0e0e0;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        color: #999;
-        font-weight: 600;
-        text-align: center;
-      }
-      .exp-content { flex: 1; }
-      .exp-role { font-weight: 700; font-size: 14.5px; }
-      .exp-company { color: #555; font-size: 14px; }
-      .exp-date { font-size: 13px; color: #888; margin-top: 2px; }
-      .exp-desc { font-size: 13.5px; color: #444; margin-top: 4px; }
-    </style>
-    <ul class="exp-list">
-      <li class="exp-item">
-        <div class="exp-logo">公司<br>Logo</div>
-        <div class="exp-content">
-          <div class="exp-role">Research Intern</div>
-          <div class="exp-company">公司/机构名称</div>
-          <div class="exp-date">月份 年份 – 月份 年份</div>
-          <div class="exp-desc">简短描述工作内容（可不填）</div>
-        </div>
-      </li>
     </ul>
   </section>
 
