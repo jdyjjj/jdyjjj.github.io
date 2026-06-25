@@ -1,0 +1,7 @@
+main:
+
+  - title: "FLUX-Text: Scene Text Editing via Diffusion Transformer"
+    description: An open-source scene text editing project that supports multi-line text editing in complex visual scenes (posters, ads, games) for both English and Chinese, built on FLUX with LoRA fine-tuning.
+    stars: 505
+    code: https://github.com/AMAP-ML/FluxText
+    image: https://raw.githubusercontent.com/AMAP-ML/FluxText/main/assets/demo1.jpg
