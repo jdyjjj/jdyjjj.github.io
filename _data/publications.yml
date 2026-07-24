@@ -1,5 +1,20 @@
 main:
 
+  - title: "FLUX-Text: Scene Text Editing via Diffusion Transformer"
+    authors: <strong>Dongyang Jin</strong>, et al.
+    conference_short: TMM
+    conference: IEEE Transactions on Multimedia <strong>(TMM)</strong>, 2025.
+    code: https://github.com/AMAP-ML/FluxText
+    image: https://raw.githubusercontent.com/AMAP-ML/FluxText/main/assets/demo1.jpg
+
+  - title: "SCALAR++: Scale-wise Controllable Visual Autoregressive Learning"
+    authors: Ryan Xu*, <strong>Dongyang Jin*</strong>, et al.
+    conference_short: IJCV
+    conference: International Journal of Computer Vision <strong>(IJCV)</strong>, 2025.
+    pdf: https://arxiv.org/pdf/2507.19946
+    code: https://github.com/AMAP-ML/SCALAR
+    image: ./assets/img/teaser_example.png
+
   - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
     authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
     conference_short: MICCAI
